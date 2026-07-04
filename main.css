@@ -1,0 +1,72 @@
+*
+{
+    box-sizing: border-box;
+}
+
+#container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 8vh;
+    padding-top: 4vw;
+}
+
+.Card
+{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size:100%;
+    backdrop-filter: blur(20px);
+    background-color: #eee;
+    border: 0.5px solid #aaa;
+    border-radius: 8px;
+    min-width: 40vw;
+    max-width: 80vw;
+    height: auto;
+    box-shadow: 0 0 30px 1px #ddd, inset 2px 2px 8px 1px #aaa;
+    overflow: hidden;
+}
+.grid-item
+{
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.Card p
+{
+    text-align: justify;
+    font-weight: 600;
+}
+.Card img
+{
+    width: 100%;
+}
+.foto
+{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0%;
+    background-color: rgba(238, 238, 238, 0.55);
+    backdrop-filter: blur(6px);
+    width: auto;
+    height: auto;
+    padding: 2rem;
+    z-index: 1;
+    transition: 400ms ease-out;
+    font-size: clamp(12px, 1.5vw, 16px);
+}
+.text:hover
+{
+    opacity: 100%;
+}
