@@ -44,6 +44,10 @@
 {
     width: 100%;
 }
+.Card h3
+{
+    padding-left: 2rem;
+}
 .foto
 {
     background-position: center;
@@ -69,4 +73,9 @@
 .text:hover
 {
     opacity: 100%;
+}
+button#clearBtn
+{
+    display: none;
+    transition: 200ms;
 }

@@ -6,6 +6,8 @@ const options = {
   }
 };
 
+const serchIn = document.querySelector('#serchIn');
+
 function discoverTvShows()
 {
   fetch('https://api.themoviedb.org/3/discover/tv', options)
@@ -45,7 +47,8 @@ function discoverTvShows()
 
 function serchTvShows()
 {
-  fetch('https://api.themoviedb.org/3/search/tv?query=Xplay&language=pl-PL', options)
+  let pos = serchIn.value;
+  fetch('https://api.themoviedb.org/3/search/tv?query='+pos+'&language=pl-PL', options)
   .then(res => res.json())
   .then(res => {
     console.log(res);
@@ -112,17 +115,26 @@ function cardCreate(name, overview, path)
   container.insertAdjacentHTML('beforeend',cardHTML);
 }
 
-const serchIn = document.querySelector('#serchIn');
+
 serchIn.addEventListener('input', () => {
   //console.log("Jest!");
   const wpisanyTekst = serchIn.value;
+  const clear = document.querySelector('#clearBtn');
   if(wpisanyTekst == "")
   {
     discoverTvShows();
+    clear.style.display = "none";
   }else
   {
     serchTvShows();
+    clear.style.display = "inline-block";
   }
+
+  clear.addEventListener('click', () => {
+    serchIn.value = "";
+    clear.style.display = "none";
+    discoverTvShows();
+  });
 });
 
 
