@@ -25,7 +25,7 @@
     border: 0.5px solid #aaa;
     border-radius: 8px;
     min-width: 40vw;
-    max-width: 80vw;
+    max-width: 500px;
     height: auto;
     box-shadow: 0 0 30px 1px #ddd, inset 2px 2px 8px 1px #aaa;
     overflow: hidden;
@@ -65,10 +65,12 @@
     backdrop-filter: blur(6px);
     width: auto;
     height: auto;
-    padding: 2rem;
+    max-height: auto;
+    padding: 0 2rem;
     z-index: 1;
     transition: 400ms ease-out;
-    font-size: clamp(12px, 1.5vw, 16px);
+    font-size: clamp(16px, 1.5vw, 16px);
+    overflow: hidden;
 }
 .text:hover
 {

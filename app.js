@@ -1,3 +1,4 @@
+
 const options = {
   method: 'GET',
   headers: {
@@ -41,6 +42,7 @@ function discoverTvShows()
   })
   .catch(err => {
     console.error(err);
+    const container = document.querySelector('#container');
     container.innerHTML = "Błąd";
   });
 }
@@ -79,17 +81,19 @@ function serchTvShows()
   })
   .catch(err => {
     console.error(err);
+    const container = document.querySelector('#container');
     container.innerHTML = "Błąd";
   });
 }
 
 function cardCreate(name, overview, path)
 {
+  const container = document.querySelector('#container');
   let cardHTML = '';
   console.log("w cardHTML");
     if(overview != "")
     {
-      console.log("w if");
+      //console.log("w if");
        cardHTML =
       `<div class="Card">
         <div class="grid-item">
@@ -102,7 +106,7 @@ function cardCreate(name, overview, path)
       </div>
     `
   }else{
-    console.log("w else");
+    //console.log("w else");
      cardHTML=
       `<div class="Card">
         <div class="grid-item">
@@ -128,6 +132,7 @@ serchIn.addEventListener('input', () => {
   {
     serchTvShows();
     clear.style.display = "inline-block";
+    console.log(buildApiUrl('search.tv', {query: wpisanyTekst}));
   }
 
   clear.addEventListener('click', () => {
@@ -139,5 +144,4 @@ serchIn.addEventListener('input', () => {
 
 
 discoverTvShows();
-
 
