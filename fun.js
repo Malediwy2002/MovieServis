@@ -30,7 +30,7 @@ function sprawdzText(arg)
     if(arg == "")
     {
         discoverdShows();
-        console.log('nie ma tesktu');
+        //console.log('nie ma tesktu');
         clearBtnDisapire(false);
     }else{
         SerachTvShows(arg);
@@ -148,6 +148,7 @@ function clearBtnDisapire(display)
     }else
     {
         btn.style.display = 'none';
+        discoverdShows();
     }
 }
 
