@@ -8,14 +8,21 @@ const options = {
     accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3OTY0ZmIzMDE4ZDc5ODZjMDZiODJkNWI4YjZkNDg2OSIsIm5iZiI6MTc4MzA3MDMzOC4yMjU5OTk4LCJzdWIiOiI2YTQ3N2U4MjA4ODk0N2EwNzY4YzFiNWIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.179RYgJUXChVkLSjWNtZnnV7dvdxsHrD8bXQN-UiEBo'
   }
+  
 };
-const imgPath =  `https://image.tmdb.org/t/p/w500`;
 
-const serchaIn = document.querySelector('#serchIn');
 
-const btn = document.querySelector('#clearBtn');
+const tvShow = document.querySelector('#tvShow');
+  const imgPath =  `https://image.tmdb.org/t/p/w500`;
 
-serchaIn.addEventListener('input', () => {
+  const serchaIn = document.querySelector('#serchIn');
+
+  const btn = document.querySelector('#clearBtn');
+
+  console.log('DOM jest');
+
+
+  serchaIn.addEventListener('input', () => {
     const text = serchIn.value;
     sprawdzText(text);
 })
@@ -24,6 +31,11 @@ btn.addEventListener('click', () => {
         serchaIn.value = '';
         clearBtnDisapire(false)
     });
+
+
+
+
+
 
 function sprawdzText(arg)
 {
@@ -78,26 +90,10 @@ function cardCreate(target, name, overview, path)
       //console.log("w if");
        cardHTML =
       `<div class="Card">
-        <div class="grid-item">
           <img src="${path}" alt="${name} Baner">
-        </div>
-        <div class="grid-item text">
-          <p>Opis: ${overview}<p/>
-          </div>
-          <div><h3>${name}</h3></div>
       </div>
     `
-  }else{
-    //console.log("w else");
-     cardHTML=
-      `<div class="Card">
-        <div class="grid-item">
-          <img src="${path}" alt="${name} Baner">
-        </div>
-          <div><h3>${name}</h3></div>
-      </div>
-    `
-  };
+  }
   target.insertAdjacentHTML('beforeend',cardHTML);
 }
 
@@ -122,8 +118,7 @@ const SerachTvShows = async (text) =>
 
     //zwrócone dane po zapytaniu 
     const showList = await getRequest(url);
-    const container = document.querySelector('#container');
-    clearData(showList,container);
+    clearData(showList,tvShow);
 
     //insertToCard();
 }
@@ -137,15 +132,14 @@ const discoverdShows = async() =>
     const showList = await getRequest(url);
     console.log(showList);
 
-    const container = document.querySelector('#container');
-    clearData(showList,container);
+    clearData(showList,tvShow);
 }
 function clearBtnDisapire(display)
 {
     if(display == true)
     {
         btn.style.display = 'inline-block';
-    }else
+    }else 
     {
         btn.style.display = 'none';
         discoverdShows();
@@ -153,5 +147,7 @@ function clearBtnDisapire(display)
 }
 
 
+console.log('reszta jest');
 
-discoverdShows();
+
+  discoverdShows();

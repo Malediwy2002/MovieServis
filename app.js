@@ -96,26 +96,9 @@ function cardCreate(name, overview, path)
       //console.log("w if");
        cardHTML =
       `<div class="Card">
-        <div class="grid-item">
           <img src="${path}" alt="${name} Baner">
-        </div>
-        <div class="grid-item text">
-          <p>Opis: ${overview}<p/>
-          </div>
-          <div><h3>${name}</h3></div>
       </div>
-    `
-  }else{
-    //console.log("w else");
-     cardHTML=
-      `<div class="Card">
-        <div class="grid-item">
-          <img src="${path}" alt="${name} Baner">
-        </div>
-          <div><h3>${name}</h3></div>
-      </div>
-    `
-  };
+    `}
   container.insertAdjacentHTML('beforeend',cardHTML);
 }
 
